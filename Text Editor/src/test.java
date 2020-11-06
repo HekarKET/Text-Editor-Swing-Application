@@ -42,13 +42,17 @@ class texteditor extends JFrame implements ActionListener {
 		// Create menu items for edit 
 		JMenuItem cutEditMenu = new JMenuItem("cut"); 
 		JMenuItem copyEditMenu = new JMenuItem("copy"); 
-		JMenuItem pasteEditMenu = new JMenuItem("paste"); 		
+        JMenuItem pasteEditMenu = new JMenuItem("paste"); 	
+        JMenuItem a = new JMenuItem("Select All"); 	
+      	
 		cutEditMenu.addActionListener(this); 
 		copyEditMenu.addActionListener(this); 
-		pasteEditMenu.addActionListener(this); 
+        pasteEditMenu.addActionListener(this); 
+        a.addActionListener(this);
 		editMenu.add(cutEditMenu); 
 		editMenu.add(copyEditMenu); 
-		editMenu.add(pasteEditMenu); 
+        editMenu.add(pasteEditMenu); 
+        editMenu.add(a); 
 
         // Create a menu for Close 
 		JMenuItem closeMenu = new JMenuItem("close"); 
@@ -147,8 +151,13 @@ class texteditor extends JFrame implements ActionListener {
 				catch (Exception evt) { 
 					JOptionPane.showMessageDialog(f, evt.getMessage()); 
 				} 
-			} 	
+            } 
+    	
         } 
+
+        else if (s.equals("Select All")){
+            textArea.selectAll();
+        }
         
 	
 	} 
